@@ -986,9 +986,7 @@ moves_loop: // When in check search starts from here
       {
           Depth r = reduction<PvNode>(improving, depth, moveCount);
 
-          if (  captureOrPromotion
-              && (depth >= 8 * ONE_PLY
-              || !pos.see_sign(move) < VALUE_ZERO))
+          if (captureOrPromotion)
               r -= r ? ONE_PLY : DEPTH_ZERO;
           else
           {
